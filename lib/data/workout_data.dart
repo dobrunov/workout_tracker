@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:workout_tracker/models/exercise.dart';
 import 'package:workout_tracker/models/workout.dart';
 
-class WorkoutData {
+class WorkoutData extends ChangeNotifier {
   /*
   WORKOUT DATA STRUCTURE
    - this overall list contains te different workouts
@@ -39,6 +40,8 @@ class WorkoutData {
   void addWorkout(String name) {
     // add a new workout with a blank list of exerises
     workoutList.add(Workout(name: name, exercises: []));
+
+    notifyListeners();
   }
 
   // add an exercise to a workout
@@ -58,6 +61,8 @@ class WorkoutData {
       reps: reps,
       sets: sets,
     ));
+
+    notifyListeners();
   }
 
   // check off exercise
@@ -67,6 +72,8 @@ class WorkoutData {
 
     // check off boolean to show user completed the exercise
     relevantExercise.isCompleted = !relevantExercise.isCompleted;
+
+    notifyListeners();
   }
 
   // return relevant workout object, given a workout name
