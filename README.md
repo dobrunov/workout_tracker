@@ -1,8 +1,8 @@
-# workout_tracker
+# Workout tracker
 
-A new Flutter project.
+This workout tracker for study consolidation of acquired skills
 
 ## Getting Started
 
-This workout tracker for study consolidation of acquired skills
+
 
