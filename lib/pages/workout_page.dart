@@ -19,35 +19,48 @@ class _WorkoutPageState extends State<WorkoutPage> {
     Provider.of<WorkoutData>(context, listen: false).checkOffExercise(workoutName, exerciseName);
   }
 
-// text controllers
+  // text controllers
   final exerciseNameController = TextEditingController();
   final weightNameController = TextEditingController();
   final repsNameController = TextEditingController();
   final setsNameController = TextEditingController();
 
-// create new exercise
+  // create new exercise
   void createNewExercise() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Add a new exercise'),
         content: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             // exercise name
-            TextField(
-              controller: exerciseNameController,
+            SizedBox(
+              height: 40,
+              child: TextField(
+                controller: exerciseNameController,
+              ),
             ),
             // weight
-            TextField(
-              controller: weightNameController,
+            SizedBox(
+              height: 40,
+              child: TextField(
+                controller: weightNameController,
+              ),
             ),
             // reps
-            TextField(
-              controller: repsNameController,
+            SizedBox(
+              height: 40,
+              child: TextField(
+                controller: repsNameController,
+              ),
             ),
             // sets
-            TextField(
-              controller: setsNameController,
+            SizedBox(
+              height: 40,
+              child: TextField(
+                controller: setsNameController,
+              ),
             ),
           ],
         ),
