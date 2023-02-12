@@ -67,11 +67,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
         actions: [
           MaterialButton(
             onPressed: save,
-            child: Text('save'),
+            child: const Text('save'),
           ),
           MaterialButton(
             onPressed: cancel,
-            child: Text('cancel'),
+            child: const Text('cancel'),
           ),
         ],
       ),
