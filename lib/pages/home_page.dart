@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/pages/workout_page.dart';
 
+import '../components/heat_map.dart';
 import '../data/workout_data.dart';
 
 class HomePage extends StatefulWidget {
@@ -89,24 +90,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Workout tracker'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: createNewWorkout,
-          child: const Icon(Icons.add),
-        ),
-        body: ListView.builder(
-          itemCount: value.getWorkoutList().length,
-          itemBuilder: (context, index) => ListTile(
-            title: Text(value.getWorkoutList()[index].name),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward),
-              onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
-            ),
+          appBar: AppBar(
+            title: const Text('Workout tracker'),
           ),
-        ),
-      ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: createNewWorkout,
+            child: const Icon(Icons.add),
+          ),
+          body: ListView(
+            children: [
+              // HEAT MAP
+              MyHeatMap(
+                datasets: value.heatMapDataSet,
+                startDateYYYYMMDD: value.getStartDate(),
+              ),
+
+              // Workout list
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: value.getWorkoutList().length,
+                itemBuilder: (context, index) => ListTile(
+                  title: Text(value.getWorkoutList()[index].name),
+                  trailing: IconButton(
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
