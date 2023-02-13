@@ -120,23 +120,28 @@ class _WorkoutPageState extends State<WorkoutPage> {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[500],
           title: Text(widget.workoutName),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.green[500],
           onPressed: createNewExercise,
           child: const Icon(Icons.add),
         ),
         body: ListView.builder(
           itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
-          itemBuilder: (context, index) => ExerciseTile(
-            exerciseName: value.getRelevantWorkout(widget.workoutName).exercises[index].name,
-            weight: value.getRelevantWorkout(widget.workoutName).exercises[index].weight,
-            reps: value.getRelevantWorkout(widget.workoutName).exercises[index].reps,
-            sets: value.getRelevantWorkout(widget.workoutName).exercises[index].sets,
-            isCompleted: value.getRelevantWorkout(widget.workoutName).exercises[index].isCompleted,
-            onCheckBoxChanged: (val) => onCheckBoxChanged(
-              widget.workoutName,
-              value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.only(left: 12.0, top: 12, right: 12),
+            child: ExerciseTile(
+              exerciseName: value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+              weight: value.getRelevantWorkout(widget.workoutName).exercises[index].weight,
+              reps: value.getRelevantWorkout(widget.workoutName).exercises[index].reps,
+              sets: value.getRelevantWorkout(widget.workoutName).exercises[index].sets,
+              isCompleted: value.getRelevantWorkout(widget.workoutName).exercises[index].isCompleted,
+              onCheckBoxChanged: (val) => onCheckBoxChanged(
+                widget.workoutName,
+                value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+              ),
             ),
           ),
         ),

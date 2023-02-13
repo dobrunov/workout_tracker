@@ -34,17 +34,27 @@ class _HomePageState extends State<HomePage> {
           controller: newWorkoutNameController,
         ),
         actions: [
-          // save button
-          MaterialButton(
-            onPressed: save,
-            child: const Text('save'),
-          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // cancel button
+                MaterialButton(
+                  color: Colors.red[500],
+                  onPressed: cancel,
+                  child: const Text('cancel'),
+                ),
 
-          // cancel button
-          MaterialButton(
-            onPressed: cancel,
-            child: const Text('cancel'),
-          )
+                // save button
+                MaterialButton(
+                  color: Colors.green[500],
+                  onPressed: save,
+                  child: const Text('save'),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -90,10 +100,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
+          backgroundColor: Colors.grey[100],
           appBar: AppBar(
+            backgroundColor: Colors.green[500],
             title: const Text('Workout tracker'),
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.green[500],
             onPressed: createNewWorkout,
             child: const Icon(Icons.add),
           ),
@@ -110,11 +123,17 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: value.getWorkoutList().length,
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(value.getWorkoutList()[index].name),
-                  trailing: IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.green[100],
+                    child: ListTile(
+                      title: Text(value.getWorkoutList()[index].name),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.arrow_forward),
+                        onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
+                      ),
+                    ),
                   ),
                 ),
               ),
