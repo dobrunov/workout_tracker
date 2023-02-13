@@ -42,14 +42,14 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // cancel button
                 MaterialButton(
-                  color: Colors.red[500],
+                  color: red500,
                   onPressed: cancel,
                   child: const Text('cancel'),
                 ),
 
                 // save button
                 MaterialButton(
-                  color: Colors.green[500],
+                  color: green500,
                   onPressed: save,
                   child: const Text('save'),
                 ),
