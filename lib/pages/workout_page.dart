@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:workout_tracker/data/workout_data.dart';
 
 import '../components/exercise_tile.dart';
+import '../constants/color_constants.dart';
 
 class WorkoutPage extends StatefulWidget {
   final String workoutName;
@@ -120,11 +121,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green[500],
+          backgroundColor: green500,
           title: Text(widget.workoutName),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.green[500],
+          backgroundColor: green500,
           onPressed: createNewExercise,
           child: const Icon(Icons.add),
         ),

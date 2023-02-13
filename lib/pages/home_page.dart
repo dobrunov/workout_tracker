@@ -4,6 +4,7 @@ import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/pages/workout_page.dart';
 
 import '../components/heat_map.dart';
+import '../constants/color_constants.dart';
 import '../data/workout_data.dart';
 
 class HomePage extends StatefulWidget {
@@ -100,13 +101,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-          backgroundColor: Colors.grey[100],
+          backgroundColor: grey100,
           appBar: AppBar(
-            backgroundColor: Colors.green[500],
+            backgroundColor: green500,
             title: const Text('Workout tracker'),
           ),
           floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green[500],
+            backgroundColor: green500,
             onPressed: createNewWorkout,
             child: const Icon(Icons.add),
           ),
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    color: Colors.green[100],
+                    color: green100,
                     child: ListTile(
                       title: Text(value.getWorkoutList()[index].name),
                       trailing: IconButton(

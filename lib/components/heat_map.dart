@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:workout_tracker/datetime/date_time.dart';
 
+import '../constants/color_constants.dart';
+
 class MyHeatMap extends StatelessWidget {
   final Map<DateTime, int>? datasets;
   final String startDateYYYYMMDD;
@@ -15,13 +17,13 @@ class MyHeatMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       child: HeatMap(
         startDate: createDateTimeObject(startDateYYYYMMDD),
         endDate: DateTime.now().add(const Duration(days: 0)),
         datasets: datasets,
         colorMode: ColorMode.color,
-        defaultColor: Colors.grey[300],
+        defaultColor: grey300,
         textColor: Colors.black,
         showColorTip: false,
         showText: true,

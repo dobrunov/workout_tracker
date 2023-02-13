@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/color_constants.dart';
+
 class ExerciseTile extends StatelessWidget {
   final String exerciseName;
   final String weight;
@@ -21,7 +23,7 @@ class ExerciseTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green[100],
+      color: green100,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListTile(
@@ -32,25 +34,25 @@ class ExerciseTile extends StatelessWidget {
               // weight
               Chip(
                 label: Text("$weight kg"),
-                backgroundColor: Colors.green[200],
+                backgroundColor: green200,
                 // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].weight} kg"),
               ),
               // reps
               Chip(
                 // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].reps} reps"),
                 label: Text("$reps reps"),
-                backgroundColor: Colors.green[200],
+                backgroundColor: green200,
               ),
               // sets
               Chip(
                 label: Text("$sets sets"),
-                backgroundColor: Colors.green[200],
+                backgroundColor: green200,
                 // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].sets} sets"),
               ),
             ],
           ),
           trailing: Checkbox(
-            activeColor: Colors.green[500],
+            activeColor: green500,
             value: isCompleted,
             onChanged: (value) => onCheckBoxChanged!(value),
           ),
