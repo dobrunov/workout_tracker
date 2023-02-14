@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:workout_tracker/constants/decoration_constants.dart';
-import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/pages/workout_page.dart';
 
 import '../components/dialog_field_widget.dart';
@@ -48,14 +47,20 @@ class _HomePageState extends State<HomePage> {
                 MaterialButton(
                   color: red500,
                   onPressed: cancelWorkout,
-                  child: const Text('cancel'),
+                  child: const Text(
+                    'cancel',
+                    style: buttonTextStyle,
+                  ),
                 ),
 
                 // save button
                 MaterialButton(
                   color: green500,
                   onPressed: saveWorkout,
-                  child: const Text('save'),
+                  child: const Text(
+                    'save',
+                    style: buttonTextStyle,
+                  ),
                 ),
               ],
             ),
@@ -156,7 +161,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: createNewWorkout,
               child: const Text(
                 'ADD WORKOUT',
-                style: addButtonTextStyle,
+                style: buttonTextStyle,
               ),
             ),
             const SizedBox(

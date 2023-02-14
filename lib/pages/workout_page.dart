@@ -70,14 +70,20 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 MaterialButton(
                   color: red500,
                   onPressed: cancelExercise,
-                  child: const Text('cancel'),
+                  child: const Text(
+                    'cancel',
+                    style: buttonTextStyle,
+                  ),
                 ),
 
                 // save button
                 MaterialButton(
                   color: green500,
                   onPressed: saveExercise,
-                  child: const Text('save'),
+                  child: const Text(
+                    'save',
+                    style: buttonTextStyle,
+                  ),
                 ),
               ],
             ),
@@ -167,7 +173,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               onPressed: createNewExercise,
               child: const Text(
                 'ADD EXERCISE',
-                style: addButtonTextStyle,
+                style: buttonTextStyle,
               ),
             ),
             const SizedBox(
