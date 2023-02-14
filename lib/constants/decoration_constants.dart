@@ -6,3 +6,4 @@ const paddingLeftRight15 = EdgeInsets.only(left: 15.0, right: 15);
 const padding25 = EdgeInsets.all(25);
 
 const double textFieldHeight = 40.0;
+const gapWith5 = SizedBox(width: 5);

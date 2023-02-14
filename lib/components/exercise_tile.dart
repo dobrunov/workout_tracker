@@ -34,17 +34,19 @@ class ExerciseTile extends StatelessWidget {
             children: [
               // weight
               Chip(
-                label: Text("$weight kg"),
+                label: Text("$weight kg", style: chipsTextStyle),
                 backgroundColor: green200,
               ),
+              gapWith5,
               // reps
               Chip(
-                label: Text("$reps reps"),
+                label: Text("$reps reps", style: chipsTextStyle),
                 backgroundColor: green200,
               ),
+              gapWith5,
               // sets
               Chip(
-                label: Text("$sets sets"),
+                label: Text("$sets sets", style: chipsTextStyle),
                 backgroundColor: green200,
               ),
             ],
