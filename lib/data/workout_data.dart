@@ -147,7 +147,7 @@ class WorkoutData extends ChangeNotifier {
     //to the dataset
     // "COMPLETION_STATUS_yyyymmdd" will be te key in the database
     for (int i = 0; i < daysInBetween + 1; i++) {
-      String yyyymmdd = convertDateTimeToYYYYMMDD(startDate.add(Duration(days: 1)));
+      String yyyymmdd = convertDateTimeToYYYYMMDD(startDate.add(const Duration(days: 1)));
 
       // completion status = 0 or 1
       int completionStatus = db.getCompletionStatus(yyyymmdd);

@@ -30,7 +30,14 @@ class MyHeatMap extends StatelessWidget {
         showText: true,
         scrollable: true,
         size: 30,
-        colorsets: const {1: beige300},
+        colorsets: const {
+          1: Color.fromARGB(20, 231, 190, 40),
+          // 3: Color.fromARGB(40, 231, 190, 40),
+          5: Color.fromARGB(120, 231, 148, 40),
+          // 7: Color.fromARGB(80, 231, 190, 40),
+          // 9: Color.fromARGB(100, 231, 190, 40),
+          12: Color.fromARGB(240, 231, 190, 40),
+        },
       ),
     );
   }
