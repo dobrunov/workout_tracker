@@ -8,7 +8,7 @@ This workout tracker for study consolidation of acquired skills
 
 ## Version 0.0.1 - 14 february 2023
 This version include:
-- heat map calendar,
+- heat map calendar(in process),
 - Hive data base,
 - possibility of adding workout
 - possibility of adding exercise
