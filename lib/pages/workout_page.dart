@@ -66,14 +66,35 @@ class _WorkoutPageState extends State<WorkoutPage> {
           ],
         ),
         actions: [
-          MaterialButton(
-            onPressed: save,
-            child: const Text('save'),
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // cancel button
+                MaterialButton(
+                  color: red500,
+                  onPressed: cancel,
+                  child: const Text('cancel'),
+                ),
+
+                // save button
+                MaterialButton(
+                  color: green500,
+                  onPressed: save,
+                  child: const Text('save'),
+                ),
+              ],
+            ),
           ),
-          MaterialButton(
-            onPressed: cancel,
-            child: const Text('cancel'),
-          ),
+          // MaterialButton(
+          //   onPressed: cancel,
+          //   child: const Text('cancel'),
+          // ),
+          // MaterialButton(
+          //   onPressed: save,
+          //   child: const Text('save'),
+          // ),
         ],
       ),
     );
