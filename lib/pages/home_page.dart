@@ -4,6 +4,7 @@ import 'package:workout_tracker/constants/decoration_constants.dart';
 import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/pages/workout_page.dart';
 
+import '../components/dialog_field_widget.dart';
 import '../components/heat_map.dart';
 import '../constants/color_constants.dart';
 import '../constants/text_styles.dart';
@@ -33,8 +34,9 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("Create new workout"),
-        content: TextField(
+        content: DialogFieldWidget(
           controller: newWorkoutNameController,
+          hintText: 'workout name',
         ),
         actions: [
           Padding(
@@ -45,14 +47,14 @@ class _HomePageState extends State<HomePage> {
                 // cancel button
                 MaterialButton(
                   color: red500,
-                  onPressed: cancel,
+                  onPressed: cancelWorkout,
                   child: const Text('cancel'),
                 ),
 
                 // save button
                 MaterialButton(
                   color: green500,
-                  onPressed: save,
+                  onPressed: saveWorkout,
                   child: const Text('save'),
                 ),
               ],
@@ -76,7 +78,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // save workout
-  void save() {
+  void saveWorkout() {
     // get workout name from text controller
     String newWorkoutName = newWorkoutNameController.text;
     // add workout to workout data list
@@ -87,7 +89,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // cancel workout
-  void cancel() {
+  void cancelWorkout() {
     // pop dialog box
     Navigator.pop(context);
     clear();

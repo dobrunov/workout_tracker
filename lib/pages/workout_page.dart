@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:workout_tracker/constants/decoration_constants.dart';
 import 'package:workout_tracker/data/workout_data.dart';
 
+import '../components/dialog_field_widget.dart';
 import '../components/exercise_tile.dart';
 import '../constants/color_constants.dart';
 
@@ -37,32 +38,24 @@ class _WorkoutPageState extends State<WorkoutPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             // exercise name
-            SizedBox(
-              height: 40,
-              child: TextField(
-                controller: exerciseNameController,
-              ),
+            DialogFieldWidget(
+              controller: exerciseNameController,
+              hintText: 'exercise name',
             ),
             // weight
-            SizedBox(
-              height: 40,
-              child: TextField(
-                controller: weightNameController,
-              ),
+            DialogFieldWidget(
+              controller: weightNameController,
+              hintText: 'weight',
             ),
             // reps
-            SizedBox(
-              height: 40,
-              child: TextField(
-                controller: repsNameController,
-              ),
+            DialogFieldWidget(
+              controller: repsNameController,
+              hintText: 'reps',
             ),
             // sets
-            SizedBox(
-              height: 40,
-              child: TextField(
-                controller: setsNameController,
-              ),
+            DialogFieldWidget(
+              controller: setsNameController,
+              hintText: 'sets',
             ),
           ],
         ),
@@ -75,14 +68,14 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 // cancel button
                 MaterialButton(
                   color: red500,
-                  onPressed: cancel,
+                  onPressed: cancelExercise,
                   child: const Text('cancel'),
                 ),
 
                 // save button
                 MaterialButton(
                   color: green500,
-                  onPressed: save,
+                  onPressed: saveExercise,
                   child: const Text('save'),
                 ),
               ],
@@ -94,7 +87,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
   }
 
   // save exercise
-  void save() {
+  void saveExercise() {
     // get exercise name from text controller
     String newExerciseName = exerciseNameController.text;
     String weight = weightNameController.text;
@@ -116,7 +109,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
   }
 
   // cancel exercise
-  void cancel() {
+  void cancelExercise() {
     // pop dialog box
     Navigator.pop(context);
     clear();
