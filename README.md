@@ -2,9 +2,9 @@
 
 This workout tracker for study consolidation of acquired skills
 
-## Getting Started
+## Start
 
-Start - 9 february 2023
+9 february 2023
 
 ## Version 0.0.1 - 14 february 2023
 ![Screenshot_32](https://user-images.githubusercontent.com/98588940/218772822-47f11e46-6990-453b-a0c1-750463655002.jpg)
