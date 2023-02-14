@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/color_constants.dart';
+import '../constants/decoration_constants.dart';
 
 class ExerciseTile extends StatelessWidget {
   final String exerciseName;
@@ -25,21 +26,18 @@ class ExerciseTile extends StatelessWidget {
     return Container(
       color: green100,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: tilePadding,
         child: ListTile(
           title: Text(exerciseName),
-          // title: Text(value.getRelevantWorkout(widget.workoutName).exercises[index].name),
           subtitle: Row(
             children: [
               // weight
               Chip(
                 label: Text("$weight kg"),
                 backgroundColor: green200,
-                // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].weight} kg"),
               ),
               // reps
               Chip(
-                // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].reps} reps"),
                 label: Text("$reps reps"),
                 backgroundColor: green200,
               ),
@@ -47,7 +45,6 @@ class ExerciseTile extends StatelessWidget {
               Chip(
                 label: Text("$sets sets"),
                 backgroundColor: green200,
-                // label: Text("${value.getRelevantWorkout(widget.workoutName).exercises[index].sets} sets"),
               ),
             ],
           ),

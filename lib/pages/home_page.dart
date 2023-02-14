@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:workout_tracker/constants/decoration_constants.dart';
 import 'package:workout_tracker/models/workout.dart';
 import 'package:workout_tracker/pages/workout_page.dart';
 
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15),
+            padding: paddingLeftRight15,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -79,7 +80,6 @@ class _HomePageState extends State<HomePage> {
     String newWorkoutName = newWorkoutNameController.text;
     // add workout to workout data list
     Provider.of<WorkoutData>(context, listen: false).addWorkout(newWorkoutName);
-
     // pop dialog box
     Navigator.pop(context);
     clear();
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: value.getWorkoutList().length,
                 itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: tilePadding,
                   child: Container(
                     color: green100,
                     child: ListTile(

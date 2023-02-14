@@ -3,6 +3,7 @@ import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:workout_tracker/datetime/date_time.dart';
 
 import '../constants/color_constants.dart';
+import '../constants/decoration_constants.dart';
 
 class MyHeatMap extends StatelessWidget {
   final Map<DateTime, int>? datasets;
@@ -17,7 +18,7 @@ class MyHeatMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(25),
+      padding: padding25,
       child: HeatMap(
         startDate: createDateTimeObject(startDateYYYYMMDD),
         endDate: DateTime.now().add(const Duration(days: 0)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:workout_tracker/constants/decoration_constants.dart';
 import 'package:workout_tracker/data/workout_data.dart';
 
 import '../components/exercise_tile.dart';
@@ -67,7 +68,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15),
+            padding: paddingLeftRight15,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -87,14 +88,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ],
             ),
           ),
-          // MaterialButton(
-          //   onPressed: cancel,
-          //   child: const Text('cancel'),
-          // ),
-          // MaterialButton(
-          //   onPressed: save,
-          //   child: const Text('save'),
-          // ),
         ],
       ),
     );
@@ -153,7 +146,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         body: ListView.builder(
           itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
           itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(left: 12.0, top: 12, right: 12),
+            padding: tilePadding,
             child: ExerciseTile(
               exerciseName: value.getRelevantWorkout(widget.workoutName).exercises[index].name,
               weight: value.getRelevantWorkout(widget.workoutName).exercises[index].weight,
