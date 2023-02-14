@@ -104,45 +104,67 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-          backgroundColor: grey100,
-          appBar: AppBar(
-            backgroundColor: green500,
-            title: const Text('Workout tracker'),
-          ),
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: green500,
-            onPressed: createNewWorkout,
-            child: const Icon(Icons.add),
-          ),
-          body: ListView(
-            children: [
-              // HEAT MAP
-              MyHeatMap(
-                datasets: value.heatMapDataSet,
-                startDateYYYYMMDD: value.getStartDate(),
-              ),
+        backgroundColor: grey100,
+        appBar: AppBar(
+          backgroundColor: green500,
+          title: const Text('Workout tracker'),
+        ),
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: ListView(
+                children: [
+                  // HEAT MAP
+                  MyHeatMap(
+                    datasets: value.heatMapDataSet,
+                    startDateYYYYMMDD: value.getStartDate(),
+                  ),
 
-              // Workout list
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: value.getWorkoutList().length,
-                itemBuilder: (context, index) => Padding(
-                  padding: tilePadding,
-                  child: Container(
-                    color: green100,
-                    child: ListTile(
-                      title: Text(value.getWorkoutList()[index].name, style: tileHeaderTextStyle),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.arrow_forward),
-                        onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
+                  // Workout list
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: value.getWorkoutList().length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: tilePadding,
+                      child: Container(
+                        color: green100,
+                        child: ListTile(
+                          title: Text(value.getWorkoutList()[index].name, style: tileHeaderTextStyle),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.arrow_forward),
+                            onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),
+                          ),
+                        ),
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+            // add button
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: green500,
+                fixedSize: Size(
+                  MediaQuery.of(context).size.width * 0.95,
+                  50.0,
                 ),
               ),
-            ],
-          )),
+              onPressed: createNewWorkout,
+              child: const Text(
+                'ADD WORKOUT',
+                style: addButtonTextStyle,
+              ),
+            ),
+            const SizedBox(
+              height: 1,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

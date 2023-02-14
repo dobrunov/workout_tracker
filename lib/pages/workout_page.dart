@@ -6,6 +6,7 @@ import 'package:workout_tracker/data/workout_data.dart';
 import '../components/dialog_field_widget.dart';
 import '../components/exercise_tile.dart';
 import '../constants/color_constants.dart';
+import '../constants/text_styles.dart';
 
 class WorkoutPage extends StatefulWidget {
   final String workoutName;
@@ -131,27 +132,48 @@ class _WorkoutPageState extends State<WorkoutPage> {
           backgroundColor: green500,
           title: Text(widget.workoutName),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: green500,
-          onPressed: createNewExercise,
-          child: const Icon(Icons.add),
-        ),
-        body: ListView.builder(
-          itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
-          itemBuilder: (context, index) => Padding(
-            padding: tilePadding,
-            child: ExerciseTile(
-              exerciseName: value.getRelevantWorkout(widget.workoutName).exercises[index].name,
-              weight: value.getRelevantWorkout(widget.workoutName).exercises[index].weight,
-              reps: value.getRelevantWorkout(widget.workoutName).exercises[index].reps,
-              sets: value.getRelevantWorkout(widget.workoutName).exercises[index].sets,
-              isCompleted: value.getRelevantWorkout(widget.workoutName).exercises[index].isCompleted,
-              onCheckBoxChanged: (val) => onCheckBoxChanged(
-                widget.workoutName,
-                value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: ListView.builder(
+                itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
+                itemBuilder: (context, index) => Padding(
+                  padding: tilePadding,
+                  child: ExerciseTile(
+                    exerciseName: value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+                    weight: value.getRelevantWorkout(widget.workoutName).exercises[index].weight,
+                    reps: value.getRelevantWorkout(widget.workoutName).exercises[index].reps,
+                    sets: value.getRelevantWorkout(widget.workoutName).exercises[index].sets,
+                    isCompleted: value.getRelevantWorkout(widget.workoutName).exercises[index].isCompleted,
+                    onCheckBoxChanged: (val) => onCheckBoxChanged(
+                      widget.workoutName,
+                      value.getRelevantWorkout(widget.workoutName).exercises[index].name,
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
+            // add button
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: green500,
+                fixedSize: Size(
+                  MediaQuery.of(context).size.width * 0.95,
+                  50.0,
+                ),
+              ),
+              onPressed: createNewExercise,
+              child: const Text(
+                'ADD EXERCISE',
+                style: addButtonTextStyle,
+              ),
+            ),
+            const SizedBox(
+              height: 1,
+            ),
+          ],
         ),
       ),
     );
