@@ -6,6 +6,7 @@ import 'package:workout_tracker/pages/workout_page.dart';
 
 import '../components/heat_map.dart';
 import '../constants/color_constants.dart';
+import '../constants/text_styles.dart';
 import '../data/workout_data.dart';
 
 class HomePage extends StatefulWidget {
@@ -129,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     color: green100,
                     child: ListTile(
-                      title: Text(value.getWorkoutList()[index].name),
+                      title: Text(value.getWorkoutList()[index].name, style: tileHeaderTextStyle),
                       trailing: IconButton(
                         icon: const Icon(Icons.arrow_forward),
                         onPressed: () => goToWorkoutPage(value.getWorkoutList()[index].name),

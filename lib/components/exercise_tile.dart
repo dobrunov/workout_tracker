@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/decoration_constants.dart';
+import '../constants/text_styles.dart';
 
 class ExerciseTile extends StatelessWidget {
   final String exerciseName;
@@ -28,7 +29,7 @@ class ExerciseTile extends StatelessWidget {
       child: Padding(
         padding: tilePadding,
         child: ListTile(
-          title: Text(exerciseName),
+          title: Text(exerciseName, style: tileHeaderTextStyle),
           subtitle: Row(
             children: [
               // weight
